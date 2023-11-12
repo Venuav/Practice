@@ -1,0 +1,297 @@
+
+https://drive.google.com/drive/folders/17Q3Tf3PEfmq_cGM97brqO3oCR0EPLFC8  (Ashok It linux class)
+
+-->Linux OS came into market in the year of 1991.
+-->Linux OS developed by one student his name is "Linus Torvalds"
+-->Linux OS is free & open source code.
+-->So many people taken Linux OS source code and re-designed it and released into market with thier brand names(These are called as Linux Distributions)
+-->Linux having more than 200 distributions
+    1.Ubuntu
+    2.Cent OS
+    3.RHEL
+    4.Fedora
+    5.Suse
+    6.Kali linux etc
+-->Linux is multi userbased operating system
+-->Linux OS is highly secured when compared with windows OS.
+
+Linux Architecture:-
+----------------------------------
+-->Hardware consists all the physical devices attached to the system
+   Example:-Hard disc, RAM, mother board and CPU.
+-->Kernal is the core component of linux OS, which will intract with hardware directly
+-->Shell is the interface which takes input from the user and send instructions to kernal and takes output from kernal and sends to user.
+-->Applications are the utilities which runs on the shell
+   Example:-Browser, text editor and media player.
+
+Linux File System:-
+-------------------------
+
+-->In linux everything will be treated as file only
+-->All the files in linux OS are divided into 3 types
+   1)Ordinary files
+   2)Directory files
+   3)Device Files
+-->The files which contains data directly are called as ordinary files.
+   Ex:-Text files, binary files(images, audios & videos)
+-->Directory files in linux nothing but folders in windows
+-->In linux every device will be represented as a file. By using device files we can communicate with the devices.
+
+How to check file type in Linux?
+------------------------------------
+To display all files with it is type we will use ls -l command
+
+d :Represents directory file
+- :Ordinary files
+l :Represents link file
+
+To create an file:- touch filename.extension
+                    touch f3.txt
+
+To create an directory:- mkdir directoryname
+                         mkdir linux
+
+To remove directory:- rmdir directoryname
+
+To print the present working directory:- pwd
+
+To print account user:- whoami
+
+To list down the files:- ls -l
+
+To change directory 
+     To come back cd ..  (cd ../..)
+     To forward cd directoryname
+
+To clear data from the terminal:- clear
+
+We can use several options with ls command
+----------------------------------------------
+ls:- It will display all files & directories in alphabetical order
+ls -r :- It will display all files & directories in reverse of alphabetical order
+ls | more :-It will display files & directories names in line by line.
+ls -t :- It will display files based on last modified date and time. Most recent files will be displayed on top and old files will be displayed at bottom.
+ls -lt
+
+Note:- We can execute command with multiple options also
+Example:-
+ls -lt
+
+->ls -ltr :- It will display long listing files based on lastmodified date and time in reverse (old files will display at top and recent files will show at bottom)
+->ls -la :-It will display hidden files.
+->ls -A :-It will display all files along with hidden files except . and .. files
+->ls -F :- It will display files based on type
+          directory----> /
+          executable files-----> *
+->ls -f :-It will disable the colors in terminal
+->ls -i :-It will display all the files with Inode number
+  note:-i-node represents address of the files and where files attrubutes are stored.
+
+Below are the variuos file attributes
+-----------------------------------------
+1.Name of the file
+2.The number of links to the file.
+3.Size of the file
+4.The owner
+5.Creation time
+6.Modified time
+7.Last accessed time
+
+->ls -lR :- It will display both main and sub directory files
+
+->mkdir directory name:-It is used to create an directory.
+->mkdir d1 d2 d3 :-It is used to create multiple directories.
+->mkdir d1/d2 :-It is used to create directory inside another directory.
+->mkdir -p d1/d2/d3
+->rmdir directory name:- It is used to delete the directory(It will remove oly empty directories)
+->rm -r <direct name> (To remove non-empty directories)
+->touch filename :-It is used to create empty file
+->cat > fileame with extension:- it is used to create file with content.
+->cat filename with extension :- to print the content
+
+Head:-
+----------
+It is used to show the top cotent in the file(default 10 lines will print)
+
+->To print top 5 lines in the file
+   head -n 10 filename with extension
+->When we use minus then those line will exclude
+   head -15 filename with extensionf
+
+Tail:-
+---------
+It is used to show the bottom content in the file
+
+->Tail command is used to read the log files
+   tail filename with extenstion.(default botton 10 logs will print)
+->Tail -n 10 file name with extension
+->tail +2 filename with extension(It will start print from 2 line to till last line)
+->tail -f filename with extension(It will print the live logs)
+
+Word count:-
+------------
+We can count file data using word count command
+  ->wc filename with extension
+
+output:- 3   6      34
+       lines words characters
+
+->cp ->It is used to copy data from one file to another file we will use cp command
+----
+ cp oldfilename newfilename
+
+If we want copy multiple files into single file then we go for "cat" command
+ cat heros.txt heroins.txt > stars.txt
+
+->mv :- It is used to rename the file or directory will use mv command
+        mv f1.txt f11.txt
+       By using mv command we can move the data from one directory to another directory
+        mv f1.txt f2.txt
+
+grep:- grep stands for global regular expression print
+---------------------------------------------------------
+->In linux OS we will use 'grep' command to search for text in file
+    grep and states.txt
+    grep -i and states.txt(-i will remove the case sensitive)
+
+->To search particular text in multiple files then we execute command 
+    grep -l 'ab' *
+
+-->vi filename command is used to edit the text in the file.
+   i :-Is used to change the mode from read to edit mode
+   esc :- Is used to come out from the file
+   :wq :-is for save file and quite
+   :q! :-is for quit the file without save.
+
+-->sed (Stream editor):- It is used to modified the specific word in the file
+---------------------------
+   Syntex:- sed 's/unix/linux' filename.extension
+
+   The above command will modify only first occurance in each line
+
+--> sed 's/unix/linux/2' filename.extention  (It will change it in the second occurance)
+    sed 's/unix/linux/g' filename.extention  (It will replace it in all the places)
+
+--> sed '3d' filename.extention (It is used to delete 3rd line in the file)
+
+------------------------------------------------------------------------
+Users and groups
+------------------------------------------------------------------------
+->Multiple users can access linux machine at a time.
+->We can create multiple accounts in linux.
+
+->Create an user in linux
+--------------------------------
+ sudo adduser <user-name>
+
+->Deleting user in linux
+--------------------------------
+ sudo userdel <user-name>
+
+->Switching the users
+--------------------------
+ su - <username>
+
+->Groups
+----------------
+->Group means collection of users.
+->The primary purpose of group is to define set of privileges for a given resource that can be shared among the users within the groups.
+
+Creating a group in linux
+----------------------------
+ sudo groupadd <group-name>
+
+Add user to group
+----------------------
+ sudo usermod -aG <group-name> <user-name>
+
+To display existing groups
+---------------------------
+ cat /etc/group
+
+To check user belongs to which groups
+-------------------------------
+ id <user-name>
+
+Delete user from group
+-----------------------
+sudo gpasswd -d <user-name> <group-name>
+
+Delete a group
+----------------
+sudo groupdel <group-name>
+
+
+Difference between locate and find commands in linux
+-----------------------------------------------------
+->Locate and find commands are used for finding files/directories.
+
+->In some linux distributions locate command may not work directly then we have to install it using below command
+  sudo apt install mlocate
+
+->Locate apache
+
+Note:-Locate command will maintain it's own database and it will give results from it's database
+    locate *.txt (It will give all text files available)
+    locate -c *.txt (It will give count of text files available)
+
+->Find command will search for files in linux file system
+   find /home -name f1.txt
+   find /tmp -type f -empty  (Find all empty files)
+   find /tmp -type d -empty (find all empty directories)
+
+->Note:-Performance wisw 'locate' will be faster than 'find' command but 'locate' command will not give results for newly created files/directories immediatly. If we want newly created results also then we have to update locate database.
+
+man
+--------------
+Man command is used to get documentation of particular command.
+ man locate ==>It will give locate command details.
+
+
+Chown
+--------------
+It is used to change owner of the files.
+
+  sudo chown newusername filename For users
+  sudo chown user1 file1.txt
+
+  sudo chown :groupname filename for groups
+  sudo chown :user1 file1.txt
+
+  sudo chown username:groupname <filename>
+
+To switch to root user
+----------------------------
+sudo su
+
+To check the processing 
+----------------------------
+Free
+
+Installing Apache server in ubuntu
+-------------------------------------
+->Login to AWS.
+->Create an EC2 instance (Ubuntu)
+->Connect to EC2 instance using terminal
+->Switch to root user account using(sudo su command)
+->Update existing package in linux OS using below command
+ -> sudo apt update
+->Install apache2 server in linux machine usin below command
+   sudo apt install apache2
+->To check weather apache2 server installed or not
+   apache -version
+->To start apache2 server
+    sudo systemctl start apache2
+->To check the apache2 status
+   sudo systemctl status apache2
+
+Note:- Apache2 is an webserver and it is used to run the webapplications.
+       Bydefault apache server will run in 8080 portnumber.
+   By using winsip we can copy the fiels from windows to linux.
+   In the below location we need to add our application.
+  cat > /var/www/html/index.html
+
+
+
+
+
